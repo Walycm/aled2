@@ -1,6 +1,6 @@
 
 from models import Hero, Team
-from ..repositories.hero_db import create_hero
+from repositories.hero_db import create_hero
 
 
 def create_initial_data():

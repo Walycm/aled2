@@ -1,4 +1,5 @@
 from sqlmodel import SQLModel, create_engine, Session
+from typing import Generator
 
 DATABASE_URL = "sqlite:///bd_heroes.db"
 
@@ -11,3 +12,8 @@ def create_db_and_tables():
 
 def get_session():
     return Session(engine)
+
+def get_db() -> Generator[Session, None, None]:
+    """Dependencia para obtener la sesión de la base de datos."""
+    with Session(engine) as session:
+        yield session
